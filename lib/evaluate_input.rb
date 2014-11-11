@@ -2,20 +2,20 @@ class EvaluateInput
   attr_reader :input, :eval_input
 
   def initialize(input)
-    @input = user_input.downcase!
+    @input = input.downcase
     @eval_input = []
   end
 
   def convert_to_array
-    @eval_input = user_input.split(//)
+    @eval_input = input.split(//)
   end
 
   def finished?
-    @user_input == 'q' || @user_input =='quit'
+    @input == 'q' || @input =='quit'
   end
 
   def exit?
-    @user_input == "q" || "quit"
+    @input == "q" || @input == "quit"
   end
 
   #def input_is_valid?
@@ -27,10 +27,10 @@ class EvaluateInput
   end
 
   def play?
-    @user_input == "p" || "play"
+    @input == "p" || @input == "play"
   end
 
   def instructions?
-    @user_input == "i" || "instructions"
+    @input == "i" || @input == "instructions"
   end
 end

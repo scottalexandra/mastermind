@@ -6,8 +6,8 @@ require_relative '../lib/evaluate_input'
 class EvaluateInputTest < Minitest::Test
 
   def test_user_input_is_downcased
-    user_input = EvaluateInput.new("RRGB")
-    assert_equal "rrgb", user_input.user_input
+    user_input = EvaluateInput.new("Q")
+    assert_equal "q", user_input.input
   end
 
   def test_user_input_is_an_array
