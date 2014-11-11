@@ -4,29 +4,30 @@
 #provide feedback about number of color matches in guess compared to secret code
 #provide feedback about number of position and color matches in guess compared to secret
 class CompareCodes
-  attr_reader :secret_code, :guess
+  attr_reader :code, :guess
 
-  def initialize(secret_code, guess)
-    @secret_code = secret_code
+  def initialize(code, guess)
+    @code = code
     @guess = guess
     @counter = 0
   end
 
 
+
   def match?
-    @secret_code == @guess
+    @code == @guess
   end
 
   def position_color_match
-    @guess.each_with_index.count {|color,position| color == @secret_code[position]}
+    @guess.each_with_index.count {|color,position| color == @code[position]}
   end
 
   def color_match
-    copy = @secret_code.dup
-    @guess.each do |color|
-      if copy.include?(color)
+    copy = @code.dup
+    @guess.each do |matching_character|
+      if copy.include?(matching_character)
         @counter += 1
-        copy.delete_at(copy.index(color))
+        copy.delete_at(copy.index(matching_character))
       end
     end
     @counter

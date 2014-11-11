@@ -1,14 +1,14 @@
 #generates a random code of 4 characters
 
 class CodeGenerator
-  attr_reader :array
+  attr_reader :array, :new_code
 
   def initialize
-    @array = ['R','R','R','R','G','G','G','G','B','B','B','B','Y','Y','Y','Y']
+    @array = ['r','r','r','r','g','g','g','g','b','b','b','b','y','y','y','y']
     @new_code = []
   end
 
   def secret_code
-    @new_code = @array.shuffle!.pop(4)
+    @new_code = @array.shuffle!.pop(4) #could use shift instead of pop?
   end
 end
