@@ -1,7 +1,7 @@
 class Messages
 
   def intro
-    "Welcome to Mastermind." + program_instructions
+    "Welcome to Mastermind. " + program_instructions
   end
 
   def program_instructions
@@ -12,11 +12,11 @@ class Messages
     "Enter your command: "
   end
 
-    def game_instructions
-    "Once the game begins, I will generate a secret code with four colors consisting of red, yellow, green, and blue.
-    This code will be hidden from you. Your task is to guess my code in the least number of trys.
-    If you guess my code, you win! If you do not, I will give you hints about how your code compares to mine."
-
+  def game_instructions
+    "Once the game begins, a secret code will be generated with four colors consisting of red, yellow, green, and blue.\n
+    This code will be hidden from you. Your task is to guess the code in the least number of trys.\n
+    Along the way, you will be given hints about the position of each color, until you guess the correct code.\n
+    Guess wisely, he who has the least amount of guesses wins! \n" + program_instructions
   end
 
   def ending
@@ -45,6 +45,10 @@ class Messages
 
   def not_valid_input
     "Input not valid. Please enter (r)ed, (g)reen, (b)lue, or (y)ellow"
+  end
+
+  def winner
+    "you won!"
   end
 
 

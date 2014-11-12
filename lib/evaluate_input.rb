@@ -1,5 +1,6 @@
 class EvaluateInput
-  attr_reader :input, :eval_input
+  attr_reader :input,
+              :eval_input
 
   def initialize(input)
     @input = input.downcase
@@ -23,6 +24,7 @@ class EvaluateInput
   #end
 
   def input_is_valid?
+    @eval_input = input.split(//)
     eval_input.all? {|char| char == "r" || char == "b" || char == "y" || char == "g" }
   end
 

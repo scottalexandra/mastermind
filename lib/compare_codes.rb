@@ -4,7 +4,8 @@
 #provide feedback about number of color matches in guess compared to secret code
 #provide feedback about number of position and color matches in guess compared to secret
 class CompareCodes
-  attr_reader :code, :guess
+  attr_reader :code,
+              :guess
 
   def initialize(code, guess)
     @code = code
@@ -19,7 +20,8 @@ class CompareCodes
   end
 
   def position_color_match
-    @guess.each_with_index.count {|color,position| color == @code[position]}
+    count = @guess.each_with_index.count {|color,position| color == @code[position]}
+    puts "you have #{count} of the correct colors"
   end
 
   def color_match
@@ -31,5 +33,6 @@ class CompareCodes
       end
     end
     @counter
+    puts "you have #{@counter} of the colors in the correct position"
   end
 end

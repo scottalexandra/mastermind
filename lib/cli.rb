@@ -1,5 +1,6 @@
 require_relative 'messages'
 require_relative 'evaluate_input'
+require_relative 'game'
 
 
 class Cli
@@ -35,9 +36,8 @@ class Cli
     if eval_input.exit?
       outstream.puts messages.quit_game
     elsif eval_input.play?
-      puts "fake play game"
-      # game = Game.new
-      # game.play
+      game = Game.new(instream, outstream)
+      game.play
     elsif eval_input.instructions?
       outstream.puts messages.game_instructions
     else
