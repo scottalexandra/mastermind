@@ -7,21 +7,26 @@ class CompareCodes
   attr_reader :code,
               :guess
 
-  def initialize(code, guess)
-    @code = code
-    @guess = guess
+  def initialize(secret_code, evaluated_input)
+    @code = secret_code
+    @guess = evaluated_input
     @counter = 0
   end
 
 
 
   def match?
+    #puts "this is code #{@code} and this is guess #{@guess}"
     @code == @guess
   end
 
+  def winner?
+    match?
+  end
+
   def position_color_match
-    count = @guess.each_with_index.count {|color,position| color == @code[position]}
-    puts "you have #{count} of the correct colors"
+    correct_position = @guess.each_with_index.count {|color,position| color == @code[position]}
+    correct_position
   end
 
   def color_match
@@ -33,6 +38,6 @@ class CompareCodes
       end
     end
     @counter
-    puts "you have #{@counter} of the colors in the correct position"
+    #puts "you have #{@counter} of the colors in the correct position"
   end
 end

@@ -1,6 +1,6 @@
 require_relative 'messages'
 require_relative 'evaluate_input'
-require_relative 'game'
+require_relative 'game1'
 
 
 class Cli
@@ -24,7 +24,8 @@ class Cli
       @outstream.puts messages.command_request
       user_input = instream.gets.strip
       eval_input = EvaluateInput.new(user_input)
-      break if eval_input.finished?
+      break if eval_input.exit?
+
       process_initial_commands(eval_input)
     end
     outstream.puts messages.ending
@@ -36,7 +37,7 @@ class Cli
     if eval_input.exit?
       outstream.puts messages.quit_game
     elsif eval_input.play?
-      game = Game.new(instream, outstream)
+      game = Game1.new(instream, outstream, messages)
       game.play
     elsif eval_input.instructions?
       outstream.puts messages.game_instructions

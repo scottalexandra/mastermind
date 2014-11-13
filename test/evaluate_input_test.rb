@@ -30,4 +30,14 @@ class EvaluateInputTest < Minitest::Test
     guess.convert_to_array
     assert guess.input_is_valid?, "see's user input as not valid"
   end
+
+  def test_length_too_short
+    guess = EvaluateInput.new("yyy")
+    assert guess.length_short?
+  end
+
+  def test_length_too_long
+    guess = EvaluateInput.new("GGY4B")
+    refute guess.length_long?
+  end
 end
