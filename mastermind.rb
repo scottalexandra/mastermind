@@ -3,4 +3,4 @@ $LOAD_PATH.unshift(lib_dir)
 
 require 'cli'
 
-CLI.new($stdin, $stdout).call
+Cli.new($stdin, $stdout).call

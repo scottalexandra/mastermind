@@ -10,9 +10,9 @@ class EvaluateInput
     @valid = false
   end
 
-  def convert_to_array
-    eval_input = input.split(//)
-  end
+  #def convert_to_array
+  #   eval_input = input.split(//)
+  # end
 
   def finished?
     input == 'q' || input =='quit'

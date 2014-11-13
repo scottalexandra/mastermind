@@ -16,7 +16,7 @@ class CompareCodes
 
 
   def match?
-    #puts "this is code #{@code} and this is guess #{@guess}"
+    puts "this is code #{@code} and this is guess #{@guess}"
     @code == @guess
   end
 
