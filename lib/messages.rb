@@ -4,7 +4,17 @@ require 'colorize'
 class Messages
 
   def intro
-    "Welcome to Mastermind. " + program_instructions
+    print "\e[2J\e[f"
+    puts'     _____                   __                       .__            .___  '.magenta
+    puts'    /     \ _____    _______/  |_  ___________  _____ |__| ____    __| _/  '.magenta
+    puts'   /  \ /   \__  \  /  ___/\   __\/ __ \_  __ \/     \|  |/    \  / __ |   '.magenta
+    puts'  /    Y    \/ __ \_\___ \  |  | \  ___/|  | \/  Y Y  \  |   |  \/ /_/ |   '.magenta
+    puts'  \____|__  (____  /____  > |__|  \___  >__|  |__|_|  /__|___|  /\____ |   '.magenta
+    puts'          \/     \/     \/            \/            \/        \/      \/   '.magenta
+
+
+
+    puts "\n" + program_instructions
   end
 
   def program_instructions
@@ -74,8 +84,7 @@ class Messages
   end
 
   def quit_game
-    "Exiting game" +
-    program_instructions
+    "Exiting game. Press 'q' to quit"
   end
 
   def not_valid_input
@@ -83,11 +92,11 @@ class Messages
   end
 
   def winner
-    puts"YOU".red + " WON".blue + "!!!".green + "!!!".yellow
+    "YOU".red + " WON".blue + "!!!".green + "!!!".yellow
   end
 
   def no_match
-    "not a match"
+    "NOT A MATCH".magenta
   end
 
   def too_short

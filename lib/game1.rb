@@ -26,9 +26,8 @@ class Game1
 
   def play
     @start_time = Time.now
-
-    outstream.puts messages.game_intro
     generate_secret_code
+    outstream.puts messages.game_intro
     until won?
       outstream.puts messages.game_command_request
       user_input = instream.gets.strip

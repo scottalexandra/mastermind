@@ -1,7 +1,7 @@
 require_relative 'messages'
 require_relative 'evaluate_input'
 require_relative 'game1'
-#gem 'colorize' 
+#gem 'colorize'
 
 
 class Cli
@@ -19,20 +19,16 @@ class Cli
   end
 
   def call
-    @outstream.puts messages.intro
-
+    outstream.puts messages.intro
     loop do
-      @outstream.puts messages.command_request
+      outstream.puts messages.command_request
       user_input = instream.gets.strip
       eval_input = EvaluateInput.new(user_input)
       break if eval_input.exit?
-
       process_initial_commands(eval_input)
     end
     outstream.puts messages.ending
   end
-
-  private
 
   def process_initial_commands(eval_input)
     if eval_input.exit?
